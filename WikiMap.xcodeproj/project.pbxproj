@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */; };
-		D4CD7B4227FC1061009DAA8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B4127FC1061009DAA8C /* ContentView.swift */; };
+		D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B4127FC1061009DAA8C /* MapView.swift */; };
 		D4CD7B4427FC1061009DAA8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CD7B4327FC1061009DAA8C /* Assets.xcassets */; };
 		D4CD7B4727FC1061009DAA8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CD7B4627FC1061009DAA8C /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		D4CD7B3C27FC1061009DAA8C /* WikiMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiMapApp.swift; sourceTree = "<group>"; };
-		D4CD7B4127FC1061009DAA8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D4CD7B4127FC1061009DAA8C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D4CD7B4327FC1061009DAA8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4CD7B4627FC1061009DAA8C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */,
-				D4CD7B4127FC1061009DAA8C /* ContentView.swift */,
+				D4CD7B4127FC1061009DAA8C /* MapView.swift */,
 				D4CD7B4327FC1061009DAA8C /* Assets.xcassets */,
 				D4CD7B4527FC1061009DAA8C /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4CD7B4227FC1061009DAA8C /* ContentView.swift in Sources */,
+				D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */,
 				D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
