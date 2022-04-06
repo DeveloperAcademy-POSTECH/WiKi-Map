@@ -10,49 +10,49 @@ import MapKit
 import CoreLocationUI
 
 
-
-struct ContentView: View {
+struct MapView: View {
+    @State private var showModal = false
+    @StateObject private var viewModel = MapViewModel()
     
-        @StateObject private var viewModel = ContentViewModel()
-    
-        var body: some View {
-            ZStack(alignment: .bottom){
+    var body: some View {
+        ZStack(alignment: .bottom){
                 
-                //Map을 사용해서 위에서 설정한 region 바인딩 진행
-                Map(coordinateRegion: $viewModel.region,
-                    interactionModes: .all,
-                    showsUserLocation: true)
-                    .ignoresSafeArea()
-                    .tint(.pink)
+            //Map을 사용해서 위에서 설정한 region 바인딩 진행
+            Map(coordinateRegion: $viewModel.region,
+                interactionModes: .all,
+                showsUserLocation: true)
+                .ignoresSafeArea()
+                .tint(.pink)
                 
-                //Text와 Button은 동등한 선상에 있기 때문에 VStack으로 설정함
-                VStack{
-                    Text("위도 : \(viewModel.region.center.latitude) ,경도: \(viewModel.region.center.longitude),  Zoom:\(viewModel.region.span.latitudeDelta) ")
-                        .font(.caption)
-                        .padding()
+            //Text와 Button은 동등한 선상에 있기 때문에 VStack으로 설정함
+            VStack{
+                Text("위도 : \(viewModel.region.center.latitude) ,경도: \(viewModel.region.center.longitude),  Zoom:\(viewModel.region.span.latitudeDelta) ")
+                    .font(.caption)
+                    .padding()
                         
                     
-                    LocationButton(.currentLocation){
-                        viewModel.requestAllowOnceLocationPermission()
-                    }
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-                    .symbolVariant(.fill)
-                    .tint(.blue)
-                    .padding(.bottom, 50)
+                LocationButton(.currentLocation){
+                    viewModel.requestAllowOnceLocationPermission()
                 }
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                .symbolVariant(.fill)
+                .tint(.blue)
                 
-            }
-        }
-}
+            }.statusBar(hidden: true)//위의 상단바(시간이랑 배터리 삭제)
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        }
     }
 }
 
-final class ContentViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
+
+struct MapView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView()
+    }
+}
+
+final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
     //region : 지도에서 어디 부분을 보여줄 것인지 설정
     //center : 위도와 경도 설정
     //span : 배율 설정 -> zoom의 크기가 작으면 작을수록 더 확대되는 형태임
