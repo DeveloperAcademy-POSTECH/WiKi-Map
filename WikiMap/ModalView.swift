@@ -1,0 +1,112 @@
+//
+//  ModalView.swift
+//  WikiMap
+//
+//  Created by Jinsan Kim on 2022/04/07.
+//
+
+import SwiftUI
+
+struct ModalView: View {
+    // Text binding
+    @State var searchText = ""
+    
+    // Gesture
+    @State var offset: CGFloat = 0
+    @State var lastOffset: CGFloat = 0
+    @GestureState var gestureOffset: CGFloat = 0
+    
+    var body: some View {
+        
+        ZStack{
+            
+//            GeometryReader{proxy in
+//                let frame = proxy.frame(in: .global)
+//
+//                Image("Cover")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fill)
+//                    .frame(width: frame.width, height: frame.height)
+//            }
+//            .ignoresSafeArea()
+            
+            MapView()
+            
+            //bottom sheet
+            GeometryReader{proxy -> AnyView in
+                
+                let height = proxy.frame(in:
+                        .global).height
+                
+                return AnyView(
+                    ZStack{
+                        BlurView(style: .systemThinMaterialDark)
+                            .cornerRadius(30)
+                        
+                        VStack{
+                            Capsule()
+                                .fill(Color.white)
+                                .frame(width: 60, height: 4)
+                                .padding(.top)
+                            
+                            TextField("Search", text: $searchText)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal)
+                                .background(BlurView(style: .dark))
+                                .cornerRadius(10)
+                                .colorScheme(.dark)
+                                .padding(.top, 10)
+                        }
+                        .padding(.horizontal)
+                        .frame(maxHeight: .infinity, alignment: .top)
+                        
+                    }
+                    .offset(y: height - 100)
+                    .offset(y: -offset > 0 ? -offset <= (height - 100) ? offset : -(height - 100) : 0)
+                    .gesture(DragGesture().updating($gestureOffset, body: {
+                        value, out, _ in
+                        
+                        out = value.translation.height
+                        onChange()
+                    }).onEnded({ value in
+                        
+                        let maxHeight = height - 100
+                        withAnimation {
+                            // Up Down or Mid
+                            if -offset > 100 && -offset < maxHeight / 2 {
+                                
+                                // Mid
+                                offset = -(maxHeight / 3)
+                            }
+                            else if -offset > maxHeight / 2 {
+                                offset = -maxHeight
+                            }
+                            else {
+                                offset = 0
+                            }
+                        }
+                        
+                        // Store last offset
+                        lastOffset = offset
+                    }))
+                    
+                )
+                
+            }
+            .ignoresSafeArea(.all, edges: .bottom)
+        }
+    }
+    
+    func onChange(){
+        DispatchQueue.main.async {
+            self.offset = gestureOffset + lastOffset
+        }
+    }
+}
+
+struct ModalView_Preview: PreviewProvider {
+    static var previews: some View {
+        ModalView()
+    }
+}
+

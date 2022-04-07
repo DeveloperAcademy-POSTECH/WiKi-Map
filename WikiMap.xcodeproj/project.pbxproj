@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F43F10427FED84A0042872D /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43F10327FED84A0042872D /* ModalView.swift */; };
+		2F43F10827FEF0360042872D /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43F10727FEF0360042872D /* BlurView.swift */; };
 		C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */; };
 		D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */; };
 		D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B4127FC1061009DAA8C /* MapView.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F43F10327FED84A0042872D /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		2F43F10727FEF0360042872D /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D4CD7B3C27FC1061009DAA8C /* WikiMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiMapApp.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */,
+				2F43F10727FEF0360042872D /* BlurView.swift */,
+				2F43F10327FED84A0042872D /* ModalView.swift */,
 				D4CD7B4127FC1061009DAA8C /* MapView.swift */,
 				C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */,
 				D4CD7B4327FC1061009DAA8C /* Assets.xcassets */,
@@ -140,8 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F43F10827FEF0360042872D /* BlurView.swift in Sources */,
 				C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */,
 				D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */,
+				2F43F10427FED84A0042872D /* ModalView.swift in Sources */,
 				D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
