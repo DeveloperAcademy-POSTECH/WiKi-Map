@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */; };
 		D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */; };
 		D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B4127FC1061009DAA8C /* MapView.swift */; };
 		D4CD7B4427FC1061009DAA8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CD7B4327FC1061009DAA8C /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D4CD7B3C27FC1061009DAA8C /* WikiMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiMapApp.swift; sourceTree = "<group>"; };
 		D4CD7B4127FC1061009DAA8C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */,
 				D4CD7B4127FC1061009DAA8C /* MapView.swift */,
+				C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */,
 				D4CD7B4327FC1061009DAA8C /* Assets.xcassets */,
 				D4CD7B4527FC1061009DAA8C /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */,
 				D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */,
 				D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */,
 			);
