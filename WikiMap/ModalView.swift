@@ -20,16 +20,6 @@ struct ModalView: View {
         
         ZStack{
             
-//            GeometryReader{proxy in
-//                let frame = proxy.frame(in: .global)
-//
-//                Image("Cover")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fill)
-//                    .frame(width: frame.width, height: frame.height)
-//            }
-//            .ignoresSafeArea()
-            
             MapView()
             
             //bottom sheet
