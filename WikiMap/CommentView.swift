@@ -14,8 +14,8 @@ struct CommentView: View {
     
     struct CommentList: Identifiable {
         let id = UUID()
+        var nickName: String
         var content: String
-        var checked: Bool
     }
     //각각의 코멘트를 구분하기 위해 Identifiable 프로토콜로 id부여 (UUID 애플이 제공하는 고유 아이디 부여받음)
     
@@ -24,20 +24,23 @@ struct CommentView: View {
     @State private var commentWrite = [CommentList]()
     
     var body: some View {
-        VStack(alignment: .leading)
+        VStack
         {
-            Text("덧글")
-            
+            HStack {
+                Text("덧글")
+                    .padding()
+                Spacer()
+            }
             List {
                 ForEach(0..<commentWrite.count, id: \.self) { i in
-                    VStack{
+                    VStack(alignment: .leading, spacing: 20) {
                         HStack {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 33, height: 33)
                                 .foregroundColor(.gray)
-                            Text("Nickname")
+                            Text(commentWrite[i].nickName)
                                 .fontWeight(.bold)
                             
                         }
@@ -46,13 +49,10 @@ struct CommentView: View {
                     }
                 }
             }
-            //ForEach 를 사용해 i에 0 부터 commentWrite 배열의 개수만큼의 수를 차례로 넣어 주고, i를 인덱스로 삼아 commentWrite[i] 의 요소를 텍스트 뷰에 올리는 것. 첫 번째 인자로 들어간 것은 범위이고, 두 번째 인자로 들어간 것은 각각을 식별할 수 있는 id
+            //ForEach 를 사용해 i에 0 부터 commentWrite 배열의 개수만큼의 수를 차례로 넣어 주고, i를 인덱스로 삼아 commentWrite[i] 의 요소를 텍스트 뷰에 올리는 것
             
             
             HStack{
-                Image(systemName: "camera.fill")
-                    .foregroundColor(.gray)
-                    .padding()
                 TextField(
                     "댓글을 입력하세요",
                     text: $commentString,
@@ -61,7 +61,7 @@ struct CommentView: View {
                     }
                 )
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(0.0)
+                .padding()
                 Button("입력") {
                     appendList()
                 }
@@ -72,7 +72,7 @@ struct CommentView: View {
     }
     
     func appendList() {
-        let inputList = CommentList(content: commentString, checked: false)
+        let inputList = CommentList(nickName: "ME", content: commentString)
         commentWrite.append(inputList)
         commentString = ""
     }
