@@ -20,7 +20,7 @@ struct ModalView: View {
         
         ZStack{
             
-            MapView()
+           
             
             //bottom sheet
             GeometryReader{proxy -> AnyView in
