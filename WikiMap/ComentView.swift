@@ -9,72 +9,70 @@ import SwiftUI
 
 struct ComentView: View {
     
+    struct CommentWrite: Identifiable {
+        let id = UUID()
+        var content: String
+        var checked: Bool
+    }
     
-    
-    @State var comment: String = ""
-    //입력된 값을 저장하기 위한 name 변수 선언
-    //변수에 빈 값 ""을 넣으면 textfield에 아무런 값도 들어있지 않은 상태로 실행되고, 특정 값을 넣게 되면 해당 값이 textfield에 입력된 상태로 실행됨
-    //@state를 붙이면, name변수에 값 변동이 생기는 경우 이를 감지하여 view를 다시 만들어 name변수가 사용된 모든 부분이 변경된 값이 적용될 수 있도록 한다
-    
+    @State var commentString = ""
+    @State private var commentWrite = [CommentWrite]()
     
     var body: some View {
-        
-        
         VStack(alignment: .leading)
         {
+            Text("덧글")
             
-            //지울거
-            Rectangle()
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
-                .foregroundColor(/*@START_MENU_TOKEN@*/.orange/*@END_MENU_TOKEN@*/)
-            
-            //양옆으로 마진 16px주기
-            
-            Text("댓글")
-            
-            //덧글보이는창
             List {
-                //덧글예시
-                VStack(alignment: .leading){
-                HStack{
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 33, height: 33)
-                        .foregroundColor(.gray)
-                    Text("Nickname")
-                }
-                Text("덧글예시덧글예시덧글예시덧글예시덧글예시덧글예시덧글예시덧글예시덧글예시")
-                }
-                VStack(alignment: .leading){
-                HStack{
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 33, height: 33)
-                        .foregroundColor(.gray)
-                    Text("Nickname2")
-                }
-                Text("덧글예시덧글예시덧글예시덧글예시")
+                ForEach(0..<commentWrite.count, id: \.self) { i in
+                    VStack{
+                    HStack {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 33, height: 33)
+                            .foregroundColor(.gray)
+                        Text("Nickname")
+                            .fontWeight(.bold)
+                        
+                    }
+                    Text(commentWrite[i].content)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
             }
+
             
-                    
             HStack{
                 Image(systemName: "camera.fill")
                     .foregroundColor(.gray)
                     .padding()
-                TextField("댓글을 입력하세요", text: $comment)
+                TextField(
+                    "댓글을 입력하세요",
+                    text: $commentString,
+                    onCommit: {
+                        appendList()
+                    }
+                )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(0.0)
                 Button("입력") {
-                    print(self.$comment)
+                    print(self.$commentString)
                 }
                 .padding()
+                //버튼입력안됨...
             }
+            
         }
     }
+    
+    func appendList() {
+         let inputList = CommentWrite(content: commentString, checked: false)
+         commentWrite.append(inputList)
+         commentString = ""
+     }
 }
+
 
 struct ComentView_Previews: PreviewProvider {
     static var previews: some View {
