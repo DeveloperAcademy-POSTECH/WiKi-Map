@@ -18,7 +18,19 @@ struct ImageView: View {
             
             HStack{
                 Text("사진")
+                    .font(.system(size: 20))
                 Spacer()
+                Button(action: {
+                    //버튼을 클릭했을 때 실행되는 코드
+                    
+                }){
+                    Image(systemName: "plus")
+                }
+                .font(.system(size: 15, weight: .bold, design: .rounded))
+                .foregroundColor(.blue)
+                .padding(3)
+                .clipShape(Capsule())
+                .overlay(Capsule().stroke(Color.blue, lineWidth: 3))
             }
             
             Spacer().frame( height: 10)
@@ -36,11 +48,6 @@ struct ImageView: View {
                     }
                     
                 }
-                Button(action: {
-                    self.stairPhoto.append("계단5")
-                }) {
-                    Text("ADD")
-                }
             }
         }
         .padding()
@@ -49,8 +56,10 @@ struct ImageView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
+struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
         ImageView()
     }
 }
+
+

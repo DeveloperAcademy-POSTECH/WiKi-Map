@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */; };
+		D414C63A2803B648009728C8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414C6392803B648009728C8 /* Test.swift */; };
 		D4BC5699280045A700BF795F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC5698280045A700BF795F /* ImageView.swift */; };
 		D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */; };
 		D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B4127FC1061009DAA8C /* MapView.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D414C6392803B648009728C8 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		D4BC5698280045A700BF795F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		D4CD7B3C27FC1061009DAA8C /* WikiMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiMapApp.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				D4CD7B4127FC1061009DAA8C /* MapView.swift */,
 				C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */,
 				D4BC5698280045A700BF795F /* ImageView.swift */,
+				D414C6392803B648009728C8 /* Test.swift */,
 				D4CD7B4327FC1061009DAA8C /* Assets.xcassets */,
 				D4CD7B4527FC1061009DAA8C /* Preview Content */,
 			);
@@ -145,6 +148,7 @@
 			files = (
 				D4BC5699280045A700BF795F /* ImageView.swift in Sources */,
 				C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */,
+				D414C63A2803B648009728C8 /* Test.swift in Sources */,
 				D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */,
 				D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */,
 			);
@@ -277,7 +281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WikiMap/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8H99KCN9Y7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
@@ -310,7 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WikiMap/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8H99KCN9Y7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
