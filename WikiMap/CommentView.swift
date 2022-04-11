@@ -49,8 +49,6 @@ struct CommentView: View {
                     }
                 }
             }
-            //ForEach 를 사용해 i에 0 부터 commentWrite 배열의 개수만큼의 수를 차례로 넣어 주고, i를 인덱스로 삼아 commentWrite[i] 의 요소를 텍스트 뷰에 올리는 것
-            
             
             HStack{
                 TextField(
