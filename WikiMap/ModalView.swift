@@ -28,12 +28,12 @@ struct ModalView: View {
                 
                 return AnyView(
                     ZStack{
-                        BlurView(style: .systemThinMaterialDark)
+                        BlurView(style: .systemThinMaterialLight)
                             .cornerRadius(30)
                         
                         VStack{
                             Capsule()
-                                .fill(Color.white)
+                                .fill(Color.secondary)
                                 .frame(width: 60, height: 4)
                                 .padding(.top)
                             
