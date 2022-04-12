@@ -9,6 +9,11 @@ import SwiftUI
 
 struct CommentView: View {
     
+    // Clear List Background
+    init(){
+            UITableView.appearance().backgroundColor = .clear
+    }
+    
     
     //Textfield를 통해 입력받은 댓글을 배열에 저장하고 그 요소를 리스트에 보여줌
     
@@ -26,11 +31,6 @@ struct CommentView: View {
     var body: some View {
         VStack
         {
-            HStack {
-                Text("덧글")
-                    .padding()
-                Spacer()
-            }
             List {
                 ForEach(0..<commentWrite.count, id: \.self) { i in
                     VStack(alignment: .leading, spacing: 20) {
@@ -42,12 +42,14 @@ struct CommentView: View {
                                 .foregroundColor(.gray)
                             Text(commentWrite[i].nickName)
                                 .fontWeight(.bold)
+                                .foregroundColor(.black)
                             
                         }
                         Text(commentWrite[i].content)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
+                .listRowBackground(Color.white)
             }
             
             HStack{
@@ -67,6 +69,7 @@ struct CommentView: View {
             }
             
         }
+        .background(.clear)
     }
     
     func appendList() {
@@ -79,6 +82,6 @@ struct CommentView: View {
 
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentView()
+        ModalView()
     }
 }
