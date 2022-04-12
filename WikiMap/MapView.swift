@@ -29,7 +29,10 @@ struct MapView: View {
     var body: some View {
         ZStack(alignment: .topLeading){
             
-            
+            MapAnnotationView()
+                .ignoresSafeArea()
+                .tint(.pink)
+            /*
             //Map을 사용해서 위에서 설정한 region 바인딩 진행
             Map(coordinateRegion: $viewModel.region,
                 interactionModes: .all,
@@ -39,7 +42,8 @@ struct MapView: View {
             }
                 .ignoresSafeArea()
                 .tint(.pink)
-                
+            */
+            
             
             //Text와 Button은 동등한 선상에 있기 때문에 VStack으로 설정함
             /*Text("위도 : \(viewModel.region.center.latitude) ,경도: \(viewModel.region.center.longitude),  Zoom:\(viewModel.region.span.latitudeDelta) ")
