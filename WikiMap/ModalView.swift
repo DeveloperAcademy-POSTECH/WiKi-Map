@@ -72,7 +72,7 @@ struct ModalView: View {
                             if -offset > 100 && -offset < maxHeight / 2 {
                                 
                                 // Mid
-                                offset = -(maxHeight / 3)
+                                offset = -(maxHeight / 4)
                             }
                             else if -offset > maxHeight / 2 {
                                 offset = -maxHeight
