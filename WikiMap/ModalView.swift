@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ModalView: View {
-    // Text binding
-    @State var searchText = ""
     
     // Gesture
     @State var offset: CGFloat = 0
@@ -39,13 +37,13 @@ struct ModalView: View {
                                 .frame(width: 60, height: 4)
                                 .padding(.top)
                             
-                            TextField("Search", text: $searchText)
-                                .padding(.vertical, 10)
-                                .padding(.horizontal)
-                                .background(BlurView(style: .dark))
-                                .cornerRadius(10)
-                                .colorScheme(.dark)
-                                .padding(.top, 10)
+                            // Search Bar
+                            SearchView()
+                            
+                            // Modal Content
+                            BottomContent()
+                            
+                            
                         }
                         .padding(.horizontal)
                         .frame(maxHeight: .infinity, alignment: .top)
