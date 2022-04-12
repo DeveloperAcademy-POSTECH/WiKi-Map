@@ -15,7 +15,8 @@ struct SearchView: View {
         TextField("Search", text: $searchText)
             .padding(.vertical, 10)
             .padding(.horizontal)
-            .background(BlurView(style: .dark))
+            .foregroundColor(.black)
+            .background(BlurView(style: .light))
             .cornerRadius(10)
             .colorScheme(.dark)
             .padding(.top, 10)
@@ -30,20 +31,20 @@ struct BottomContent: View {
             HStack {
                 Text("Recently Add")
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 
                 Spacer()
                 
                 Button(action: {}, label: {
                     Text("See All")
                         .fontWeight(.bold)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.blue)
                 })
             }
             .padding(.top, 20)
             
             Divider()
-                .background(Color.white)
+                .background(Color.gray)
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack(spacing: 15){
                     VStack{
@@ -52,12 +53,12 @@ struct BottomContent: View {
                                 .resizable()
                                 .padding(15)
                                 .frame(width: 70, height: 70)
-                                .background(Color(red: 52 / 255, green: 152 / 255, blue: 219 / 255))
+                                .background(.blue)
                                 .clipShape(Circle())
                         })
                         
                         Text("Stair")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }
                     
                     VStack{
@@ -66,12 +67,12 @@ struct BottomContent: View {
                                 .resizable()
                                 .padding(15)
                                 .frame(width: 70, height: 70)
-                                .background(Color(red: 52 / 255, green: 152 / 255, blue: 219 / 255))
+                                .background(.blue)
                                 .clipShape(Circle())
                         })
                         
                         Text("Elevator")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }
                     
                     VStack{
@@ -86,11 +87,30 @@ struct BottomContent: View {
                         })
                         
                         Text("AED")
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }
                 }
             })
             
+            HStack {
+                Text("Comments")
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                
+                Spacer()
+                
+                Button(action: {}, label: {
+                    Text("See All")
+                        .fontWeight(.bold)
+                        .foregroundColor(.blue)
+                })
+            }
+            .padding(.top, 20)
+            
+            Divider()
+                .background(Color.gray)
+            
+            CommentView()
         }
     }
 }
