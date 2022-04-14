@@ -12,10 +12,12 @@ class ImageStack: ObservableObject {
     @Published var count: Int = 0
 }
 
+
 struct StackCount {
     var id = UUID()
     var number: String
 }
+
 
 struct ImageView: View {
     
@@ -28,24 +30,26 @@ struct ImageView: View {
     var body: some View {
         
         VStack(spacing: 10){
+
             HStack{
                 Spacer().frame(width: 10)
                 Text("사진")
                     .font(.system(size: 20))
                 Spacer()
             }
-            Spacer().frame(height: 10)
             
+            Spacer().frame(height: 10)
             HStack{
+                
                 Spacer().frame(width: 10)
-                
-                
-                
                 ScrollView(.horizontal, showsIndicators: false){
+                    
                     HStack(spacing: 10){
-                        ForEach(0 ..< selectedImage.count){i in
+                        
+                        ForEach(0 ..< selectedImage.count, id: \.self){i in
+                            
                             if selectedImage[i] != nil {
-                                Image(uiImage: selectedImage[i], <#String#>)
+                                Image(uiImage: self.selectedImage[i]!)
                                     .resizable()
                                     .frame(width: 85, height: 85)
                                     .scaledToFit()
@@ -58,11 +62,9 @@ struct ImageView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
                         }
-                        
                     }
                 }
             }
-            
             
             Button("Camera") {
                 self.imageStack.count += 1
@@ -79,15 +81,9 @@ struct ImageView: View {
         }
         .sheet(isPresented: self.$isImagePickerDisplay) {
             ImagePickerView(selectedImage: self.$selectedImage[0], sourceType: self.sourceType)
-            
         }
-        
-        
-        
-        
     }
 }
-
 
 
 struct ImageView_Previews: PreviewProvider {
@@ -95,4 +91,3 @@ struct ImageView_Previews: PreviewProvider {
         ImageView()
     }
 }
-
