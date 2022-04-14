@@ -23,8 +23,10 @@ struct ModalView: View {
             //bottom sheet
             GeometryReader{proxy -> AnyView in
                 
+                
                 let height = proxy.frame(in:
                         .global).height
+                let maxHeight = height - 100
                 
                 return AnyView(
                     ZStack{
@@ -38,7 +40,13 @@ struct ModalView: View {
                                 .padding(.top)
                             
                             // Search Bar
-                            SearchView()
+                            if -offset < maxHeight / 2 {
+                                SearchView()
+                            }
+                            else {
+                                
+                            }
+                            
                             
                             // Modal Content
                             BottomContent()
@@ -58,13 +66,13 @@ struct ModalView: View {
                         onChange()
                     }).onEnded({ value in
                         
-                        let maxHeight = height - 100
+                        
                         withAnimation {
                             // Up Down or Mid
                             if -offset > 100 && -offset < maxHeight / 2 {
                                 
                                 // Mid
-                                offset = -(maxHeight / 3)
+                                offset = -(maxHeight / 4)
                             }
                             else if -offset > maxHeight / 2 {
                                 offset = -maxHeight
@@ -94,7 +102,7 @@ struct ModalView: View {
 
 struct ModalView_Preview: PreviewProvider {
     static var previews: some View {
-        ModalView()
+        MapView()
     }
 }
 
