@@ -25,8 +25,9 @@ struct ImageView: View {
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage = [UIImage?](repeating: nil, count: 4)
+    @State private var selectedImageCount = -1
     @State private var isImagePickerDisplay = false
-    
+
     var body: some View {
         
         VStack(spacing: 10){
@@ -49,7 +50,7 @@ struct ImageView: View {
                         ForEach(0 ..< selectedImage.count, id: \.self){i in
                             
                             if selectedImage[i] != nil {
-                                Image(uiImage: self.selectedImage[i]!)
+                                Image(uiImage: self.selectedImage[i]!) 
                                     .resizable()
                                     .frame(width: 85, height: 85)
                                     .scaledToFit()
@@ -68,6 +69,7 @@ struct ImageView: View {
             
             Button("Camera") {
                 self.imageStack.count += 1
+                self.selectedImageCount = max(min(selectedImageCount + 1, 3), 0)
                 self.sourceType = .camera
                 self.isImagePickerDisplay.toggle()
             }
@@ -75,12 +77,13 @@ struct ImageView: View {
             
             Button("Photo") {
                 self.imageStack.count += 1
+                self.selectedImageCount = max(min(selectedImageCount + 1, 3), 0)
                 self.sourceType = .photoLibrary
                 self.isImagePickerDisplay.toggle()
             }
         }
         .sheet(isPresented: self.$isImagePickerDisplay) {
-            ImagePickerView(selectedImage: self.$selectedImage[0], sourceType: self.sourceType)
+            ImagePickerView(selectedImage: self.$selectedImage[selectedImageCount], sourceType: self.sourceType)
         }
     }
 }
