@@ -22,7 +22,7 @@ struct ImageView: View {
     @ObservedObject var imageStack = ImageStack()
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var selectedImage: UIImage?
+    @State private var selectedImage = [UIImage?](repeating: nil, count: 4)
     @State private var isImagePickerDisplay = false
     
     var body: some View {
@@ -43,9 +43,9 @@ struct ImageView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 10){
-                        ForEach(0 ..< 10){i in
-                            if selectedImage != nil {
-                                Image(uiImage: selectedImage!)
+                        ForEach(0 ..< selectedImage.count){i in
+                            if selectedImage[i] != nil {
+                                Image(uiImage: selectedImage[i], <#String#>)
                                     .resizable()
                                     .frame(width: 85, height: 85)
                                     .scaledToFit()
@@ -78,7 +78,7 @@ struct ImageView: View {
             }
         }
         .sheet(isPresented: self.$isImagePickerDisplay) {
-            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+            ImagePickerView(selectedImage: self.$selectedImage[0], sourceType: self.sourceType)
             
         }
         
