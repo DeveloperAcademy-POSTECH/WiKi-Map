@@ -6,13 +6,11 @@
 //
 
 import SwiftUI
-import MapKit
 
 @main
 struct WikiMapApp: App {
     var body: some Scene {
-        
-        WindowGroup{
+        WindowGroup {
             MapView()
         }
     }
