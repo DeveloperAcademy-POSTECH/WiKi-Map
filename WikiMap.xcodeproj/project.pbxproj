@@ -13,7 +13,7 @@
 		675DE7F22801ED9600406A87 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675DE7F12801ED9600406A87 /* CommentView.swift */; };
 		C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */; };
 		D40589B02805481D00FABFAF /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40589AF2805481D00FABFAF /* MapAnnotationView.swift */; };
-		D49431562805623800EB82F5 /* LandmarkAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49431552805623800EB82F5 /* LandmarkAnnotation.swift */; };
+		D426C0B028090B6F00FBDF99 /* AnnotationlMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426C0AF28090B6F00FBDF99 /* AnnotationlMapView.swift */; };
 		D4943158280563D100EB82F5 /* MapAnnotationViewCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4943157280563D100EB82F5 /* MapAnnotationViewCoordinate.swift */; };
 		D4BC5699280045A700BF795F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC5698280045A700BF795F /* ImageView.swift */; };
 		D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */; };
@@ -29,7 +29,7 @@
 		675DE7F12801ED9600406A87 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		C1561AA627FEC0FB005AC0ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D40589AF2805481D00FABFAF /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
-		D49431552805623800EB82F5 /* LandmarkAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkAnnotation.swift; sourceTree = "<group>"; };
+		D426C0AF28090B6F00FBDF99 /* AnnotationlMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationlMapView.swift; sourceTree = "<group>"; };
 		D4943157280563D100EB82F5 /* MapAnnotationViewCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationViewCoordinate.swift; sourceTree = "<group>"; };
 		D4BC5698280045A700BF795F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		D4CD7B3C27FC1061009DAA8C /* WikiMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,8 +72,8 @@
 				D4CD7B3F27FC1061009DAA8C /* WikiMapApp.swift */,
 				D4CD7B4127FC1061009DAA8C /* MapView.swift */,
 				D40589AF2805481D00FABFAF /* MapAnnotationView.swift */,
+				D426C0AF28090B6F00FBDF99 /* AnnotationlMapView.swift */,
 				D4943157280563D100EB82F5 /* MapAnnotationViewCoordinate.swift */,
-				D49431552805623800EB82F5 /* LandmarkAnnotation.swift */,
 				2F43F10727FEF0360042872D /* BlurView.swift */,
 				2F9A8A7D28050FC9002C31D6 /* BottomContents.swift */,
 				2F43F10327FED84A0042872D /* ModalView.swift */,
@@ -166,12 +166,12 @@
 			files = (
 				D40589B02805481D00FABFAF /* MapAnnotationView.swift in Sources */,
 				D4943158280563D100EB82F5 /* MapAnnotationViewCoordinate.swift in Sources */,
-				D49431562805623800EB82F5 /* LandmarkAnnotation.swift in Sources */,
 				2F9A8A7E28050FCA002C31D6 /* BottomContents.swift in Sources */,
 				D4BC5699280045A700BF795F /* ImageView.swift in Sources */,
 				2F43F10827FEF0360042872D /* BlurView.swift in Sources */,
 				C1561AA727FEC0FB005AC0ED /* ImagePicker.swift in Sources */,
 				D4CD7B4227FC1061009DAA8C /* MapView.swift in Sources */,
+				D426C0B028090B6F00FBDF99 /* AnnotationlMapView.swift in Sources */,
 				2F43F10427FED84A0042872D /* ModalView.swift in Sources */,
 				675DE7F22801ED9600406A87 /* CommentView.swift in Sources */,
 				D4CD7B4027FC1061009DAA8C /* WikiMapApp.swift in Sources */,
@@ -302,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WikiMap/Preview Content\"";
@@ -335,6 +336,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WikiMap/Preview Content\"";
