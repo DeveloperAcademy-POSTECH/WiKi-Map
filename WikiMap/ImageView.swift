@@ -12,40 +12,45 @@ class ImageStack: ObservableObject {
     @Published var count: Int = 0
 }
 
+
 struct StackCount {
     var id = UUID()
     var number: String
 }
+
 
 struct ImageView: View {
     
     @ObservedObject var imageStack = ImageStack()
     
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var selectedImage: UIImage?
+    @State private var selectedImage = [UIImage?](repeating: nil, count: 4)
+    @State private var selectedImageCount = -1
     @State private var isImagePickerDisplay = false
-    
+
     var body: some View {
         
         VStack(spacing: 10){
+
             HStack{
                 Spacer().frame(width: 10)
                 Text("사진")
                     .font(.system(size: 20))
                 Spacer()
             }
-            Spacer().frame(height: 10)
             
+            Spacer().frame(height: 10)
             HStack{
+                
                 Spacer().frame(width: 10)
-                
-                
-                
                 ScrollView(.horizontal, showsIndicators: false){
+                    
                     HStack(spacing: 10){
-                        ForEach(0 ..< 10){i in
-                            if selectedImage != nil {
-                                Image(uiImage: selectedImage!)
+                        
+                        ForEach(0 ..< selectedImage.count, id: \.self){i in
+                            
+                            if selectedImage[i] != nil {
+                                Image(uiImage: self.selectedImage[i]!) 
                                     .resizable()
                                     .frame(width: 85, height: 85)
                                     .scaledToFit()
@@ -58,14 +63,13 @@ struct ImageView: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
                         }
-                        
                     }
                 }
             }
             
-            
             Button("Camera") {
                 self.imageStack.count += 1
+                self.selectedImageCount = max(min(selectedImageCount + 1, 3), 0)
                 self.sourceType = .camera
                 self.isImagePickerDisplay.toggle()
             }
@@ -73,21 +77,16 @@ struct ImageView: View {
             
             Button("Photo") {
                 self.imageStack.count += 1
+                self.selectedImageCount = max(min(selectedImageCount + 1, 3), 0)
                 self.sourceType = .photoLibrary
                 self.isImagePickerDisplay.toggle()
             }
         }
         .sheet(isPresented: self.$isImagePickerDisplay) {
-            ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
-            
+            ImagePickerView(selectedImage: self.$selectedImage[selectedImageCount], sourceType: self.sourceType)
         }
-        
-        
-        
-        
     }
 }
-
 
 
 struct ImageView_Previews: PreviewProvider {
@@ -95,4 +94,3 @@ struct ImageView_Previews: PreviewProvider {
         ImageView()
     }
 }
-

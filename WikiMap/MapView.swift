@@ -29,8 +29,7 @@ struct MapView: View {
     var body: some View {
         ZStack(alignment: .topLeading){
             
-            AnnotationMapView(annotations: [])
-                
+            MapAnnotationView()
                 .ignoresSafeArea()
                 .tint(.pink)
             /*
@@ -87,7 +86,7 @@ struct MapView: View {
             ModalView()
         }
     }
-
+}
 
 
 struct MapView_Previews: PreviewProvider {
@@ -168,4 +167,3 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate{
     }
 }
 
-}
