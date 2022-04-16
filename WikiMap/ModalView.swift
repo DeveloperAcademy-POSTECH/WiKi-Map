@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ModalView: View {
-    // Text binding
-    @State var searchText = ""
     
     // Gesture
     @State var offset: CGFloat = 0
@@ -20,32 +18,40 @@ struct ModalView: View {
         
         ZStack{
             
-            MapView()
+           
             
             //bottom sheet
             GeometryReader{proxy -> AnyView in
                 
+                
                 let height = proxy.frame(in:
                         .global).height
+                let maxHeight = height - 100
                 
                 return AnyView(
                     ZStack{
-                        BlurView(style: .systemThinMaterialDark)
+                        BlurView(style: .systemThinMaterialLight)
                             .cornerRadius(30)
                         
                         VStack{
                             Capsule()
-                                .fill(Color.white)
+                                .fill(Color.secondary)
                                 .frame(width: 60, height: 4)
                                 .padding(.top)
                             
-                            TextField("Search", text: $searchText)
-                                .padding(.vertical, 10)
-                                .padding(.horizontal)
-                                .background(BlurView(style: .dark))
-                                .cornerRadius(10)
-                                .colorScheme(.dark)
-                                .padding(.top, 10)
+                            // Search Bar
+                            if -offset < maxHeight / 2 {
+                                SearchView()
+                            }
+                            else {
+                                
+                            }
+                            
+                            
+                            // Modal Content
+                            BottomContent()
+                            
+                            
                         }
                         .padding(.horizontal)
                         .frame(maxHeight: .infinity, alignment: .top)
@@ -60,13 +66,13 @@ struct ModalView: View {
                         onChange()
                     }).onEnded({ value in
                         
-                        let maxHeight = height - 100
+                        
                         withAnimation {
                             // Up Down or Mid
                             if -offset > 100 && -offset < maxHeight / 2 {
                                 
                                 // Mid
-                                offset = -(maxHeight / 3)
+                                offset = -(maxHeight / 4)
                             }
                             else if -offset > maxHeight / 2 {
                                 offset = -maxHeight
@@ -96,7 +102,7 @@ struct ModalView: View {
 
 struct ModalView_Preview: PreviewProvider {
     static var previews: some View {
-        ModalView()
+        MapView()
     }
 }
 
